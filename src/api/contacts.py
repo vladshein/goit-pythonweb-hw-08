@@ -77,3 +77,9 @@ async def update_contact(
             status_code=status.HTTP_404_NOT_FOUND, detail="Note not found"
         )
     return contact
+
+
+@router.get("/upcoming_birthdays/", response_model=List[ContactResponse])
+async def coming_birthday_contacts(db: AsyncSession = Depends(get_db)):
+    contact_service = ContactsService(db)
+    return await contact_service.get_contacts_with_upcoming_birthdays()
