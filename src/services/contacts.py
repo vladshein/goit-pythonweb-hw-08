@@ -26,4 +26,4 @@ class ContactsService:
         return await self.contacts_repository.remove_contact(contact_id)
 
     async def get_contacts_with_upcoming_birthdays(self):
-        return await self.contact_repository.get_contacts_with_upcoming_birthdays()
+        return await self.contacts_repository.get_contacts_with_upcoming_birthdays()
